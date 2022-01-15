@@ -6,9 +6,7 @@ class Diretor(
     val plr: Double
 ) : Funcionario(nome = nome, cpf = cpf, salario = salario) {
 
-//    fun bonificacao(): Double {
-//        return salario * 0.2
-//    }
+    override val bonificacao: Double get() = salario * 0.3
 
     fun autentica(senha: Int): Boolean {
         if (this.senha == senha) {
