@@ -1,37 +1,35 @@
 fun main() {
     println("Bem vindo ao ByteBank!")
 
-    val alex = Funcionario(nome = "Alex", cpf = "111.111.111-11", salario = 1000.0)
+    val contaCorrente = ContaCorrente(
+        titular = "Alex",
+        numero = 1000
+    )
 
-    println("Nome: ${alex.nome}")
-    println("CPF: ${alex.cpf}")
-    println("Salário: ${alex.salario}")
-    println("Bonificação do ${alex.nome}: ${alex.bonificacao}")
+    val contaPoupanca = ContaPoupanca(
+        titular = "Fran",
+        numero = 1001
+    )
 
-    val fran = Gerente(nome = "Fran", cpf = "222.222.222-22", salario = 2000.0, senha = 1234)
+    contaCorrente.deposita(1000.0)
+    contaPoupanca.deposita(1000.0)
 
-    println("Nome: ${fran.nome}")
-    println("CPF: ${fran.cpf}")
-    println("Salário: ${fran.salario}")
-    println("Bonificacao da ${fran.nome}: ${fran.bonificacao}")
+    println("Saldo contaCorrente: ${contaCorrente.saldo}")
+    println("Saldo contaPoupança: ${contaPoupanca.saldo}")
 
-    if (fran.autentica(senha = 1234)) {
-        println("Gerente autenticado com sucesso!")
-    } else {
-        println("Falha na autenticação!")
-    }
+    contaCorrente.sacar(100.0)
+    contaPoupanca.sacar(100.0)
 
-    val gui = Diretor(nome = "Gui", cpf = "333.333.333-33", salario = 4000.0, senha = 4000, plr = 200.0)
+    println("Saldo contaCorrente após saque: ${contaCorrente.saldo}")
+    println("Saldo contaPoupança após saque: ${contaPoupanca.saldo}")
 
-    println("Nome: ${gui.nome}")
-    println("CPF: ${gui.cpf}")
-    println("Salário: ${gui.salario}")
-    println("Bonificacao da ${gui.nome}: ${gui.bonificacao}")
-    println("PLR: ${gui.plr}")
+    contaCorrente.transfere(destino = contaPoupanca, valor = 100.0)
 
-    if (gui.autentica(senha = 4000)) {
-        println("Gerente autenticado com sucesso!")
-    } else {
-        println("Falha na autenticação!")
-    }
+    println("Saldo contaCorrente após transferir para poupança: ${contaCorrente.saldo}")
+    println("Saldo contaPoupança após receber transferência: ${contaPoupanca.saldo}")
+
+    contaPoupanca.transfere(destino = contaCorrente, valor = 200.0)
+
+    println("Saldo contaCorrente após receber transferência: ${contaCorrente.saldo}")
+    println("Saldo contaPoupança após transferência para corrente: ${contaPoupanca.saldo}")
 }
