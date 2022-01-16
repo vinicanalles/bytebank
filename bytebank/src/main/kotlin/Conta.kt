@@ -1,9 +1,9 @@
-open class Conta(
+abstract class Conta(
     var titular: String,
     val numero: Int
 ) {
     var saldo = 0.0
-        private set
+        protected set
 
     init {
         println("Inicializando a classe de conta: $titular")
@@ -15,11 +15,7 @@ open class Conta(
         }
     }
 
-    open fun sacar(valor: Double) {
-        if (this.saldo >= valor) {
-            saldo -= valor
-        }
-    }
+    abstract fun sacar(valor: Double)
 
     fun transfere(destino: Conta, valor: Double): Boolean {
         if (saldo >= valor) {
