@@ -1,4 +1,8 @@
 fun main() {
+    testaFuncionarios()
+}
+
+fun testaAutenticacao() {
     val gerente = Gerente(
         nome = "Alex",
         cpf = "111.111.111-11",
@@ -16,6 +20,6 @@ fun main() {
 
     val sistemaInterno = SistemaInterno()
 
-    sistemaInterno.entra(gerente, senha = 1000)
-    sistemaInterno.entra(diretora, senha = 2000)
+    sistemaInterno.entra(gerente, senha = 2000)
+    sistemaInterno.entra(diretora, senha = 1000)
 }
