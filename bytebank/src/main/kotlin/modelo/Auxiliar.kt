@@ -1,3 +1,5 @@
+package modelo
+
 class Auxiliar(
     nome: String,
     cpf: String,

@@ -1,3 +1,5 @@
+package modelo
+
 class Gerente(
     nome: String,
     cpf: String,
@@ -12,7 +14,7 @@ class Gerente(
 
     override val bonificacao: Double
         get() {
-            println("Bonificação Gerente")
+            println("Bonificação modelo.Gerente")
             return salario
         }
 }
