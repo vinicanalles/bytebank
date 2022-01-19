@@ -1,7 +1,7 @@
-import modelo.Analista
-import modelo.CalculadoraBonificacao
-import modelo.Diretor
-import modelo.Gerente
+import br.com.alura.bytebank.modelo.Analista
+import br.com.alura.bytebank.modelo.CalculadoraBonificacao
+import br.com.alura.bytebank.modelo.Diretor
+import br.com.alura.bytebank.modelo.Gerente
 
 fun testaFuncionarios() {
     val alex = Analista(nome = "Alex", cpf = "111.111.111-11", salario = 1000.0)
@@ -19,7 +19,7 @@ fun testaFuncionarios() {
     println("Bonificacao da ${fran.nome}: ${fran.bonificacao}")
 
     if (fran.autentica(senha = 1234)) {
-        println("modelo.Gerente autenticado com sucesso!")
+        println("br.com.alura.bytebank.modelo.Gerente autenticado com sucesso!")
     } else {
         println("Falha na autenticação!")
     }
@@ -33,7 +33,7 @@ fun testaFuncionarios() {
     println("PLR: ${gui.plr}")
 
     if (gui.autentica(senha = 4000)) {
-        println("modelo.Gerente autenticado com sucesso!")
+        println("br.com.alura.bytebank.modelo.Gerente autenticado com sucesso!")
     } else {
         println("Falha na autenticação!")
     }

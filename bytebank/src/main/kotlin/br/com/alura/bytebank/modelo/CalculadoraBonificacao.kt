@@ -1,4 +1,4 @@
-package modelo
+package br.com.alura.bytebank.modelo
 
 class CalculadoraBonificacao {
 
@@ -10,11 +10,11 @@ class CalculadoraBonificacao {
         this.total += funcionario.bonificacao
     }
 
-//    fun registra(gerente: modelo.Gerente) {
+//    fun registra(gerente: br.com.alura.bytebank.modelo.Gerente) {
 //        this.total += gerente.bonificacao
 //    }
 //
-//    fun registra(diretor: modelo.Diretor) {
+//    fun registra(diretor: br.com.alura.bytebank.modelo.Diretor) {
 //        this.total += diretor.bonificacao
 //    }
 }
