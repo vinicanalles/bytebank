@@ -8,7 +8,7 @@ fun testeLoopFor() {
         var saldo = i + 10.0
 
         println("Titular $titular") //String Template
-        println("Número Conta $numeroConta")
+        println("Número br.com.alura.bytebank.modelo.Conta $numeroConta")
         println("Saldo $saldo")
 
         testaCondicoes(saldo)
@@ -25,7 +25,7 @@ fun testaLoopWhile() {
         var saldo = i + 10.0
 
         println("Titular $titular") //String Template
-        println("Número Conta $numeroConta")
+        println("Número br.com.alura.bytebank.modelo.Conta $numeroConta")
         println("Saldo $saldo")
 
         testaCondicoes(saldo)
