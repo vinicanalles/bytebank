@@ -1,3 +1,5 @@
+import br.com.alura.bytebank.modelo.Endereco
+
 fun main() {
 
     println("Início main")
@@ -15,6 +17,8 @@ fun funcao2(){
     println("Início funcao2")
     for (i in 1..5){
         println(i)
+        val endereco = Any()
+        endereco as Endereco //lança uma Exception ao tentar converter o objeto (ClassCastException)
     }
     println("Fim funcao2")
 }
