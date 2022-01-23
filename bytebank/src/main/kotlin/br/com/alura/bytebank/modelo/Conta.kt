@@ -7,8 +7,14 @@ abstract class Conta(
     var saldo = 0.0
         protected set
 
+    companion object {
+        var total = 0
+            private set
+    }
+
     init {
-        println("Inicializando a classe de conta: $titular")
+        println("Criando conta!")
+        total++
     }
 
     fun deposita(valor: Double) {
@@ -26,5 +32,36 @@ abstract class Conta(
             return true
         }
         return false
+    }
+}
+
+class ContaCorrente(
+    titular: Cliente,
+    numero: Int
+) : Conta(
+    titular = titular,
+    numero = numero
+) {
+
+    override fun sacar(valor: Double) {
+        val valorComTaxa = valor + 0.1
+        if (this.saldo >= valorComTaxa) {
+            this.saldo -= valorComTaxa
+        }
+    }
+}
+
+class ContaPoupanca(
+    titular: Cliente,
+    numero: Int
+) : Conta(
+    titular = titular,
+    numero = numero
+) {
+
+    override fun sacar(valor: Double) {
+        if (this.saldo >= valor) {
+            this.saldo -= valor
+        }
     }
 }
