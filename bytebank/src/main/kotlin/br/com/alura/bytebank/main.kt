@@ -21,5 +21,5 @@ fun main() {
 
     testaContasDiferentes()
 
-    println("Total de contas: $totalContas")
+    println("Total de contas: ${Conta.total}")
 }
