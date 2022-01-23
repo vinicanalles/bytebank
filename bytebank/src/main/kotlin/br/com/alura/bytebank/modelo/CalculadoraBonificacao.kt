@@ -9,12 +9,4 @@ class CalculadoraBonificacao {
         println("Nome: ${funcionario.nome}")
         this.total += funcionario.bonificacao
     }
-
-//    fun registra(gerente: br.com.alura.bytebank.modelo.Gerente) {
-//        this.total += gerente.bonificacao
-//    }
-//
-//    fun registra(diretor: br.com.alura.bytebank.modelo.Diretor) {
-//        this.total += diretor.bonificacao
-//    }
 }

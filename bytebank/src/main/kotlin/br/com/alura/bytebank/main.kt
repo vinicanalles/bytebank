@@ -2,34 +2,21 @@ import br.com.alura.bytebank.modelo.Endereco
 
 fun main() {
 
-    println()
-    println(1)
-    println(1.0)
-    println(true)
-    println("teste")
-
     val endereco = Endereco()
 
-    println(endereco)
+    val objeto: Any = Any()
 
-    imprime()
+    imprime(objeto)
+
     imprime(1)
     imprime(1.0)
-    imprime(endereco)
+    val teste: Any = imprime(endereco)
+    println(teste)
+
+    testaFuncionarios()
 }
 
-fun imprime(){
-
-}
-
-fun imprime(valor: Int){
-
-}
-
-fun imprime(valor: Double){
-
-}
-
-fun imprime(endereco: Endereco){
-
+fun imprime(valor: Any) : Any {
+    println(valor)
+    return valor
 }
