@@ -7,15 +7,19 @@ fun main() {
     println("Fim main")
 }
 
-fun funcao1(){
+fun funcao1() {
     println("Início funcao1")
-    funcao2()
+    try {
+        funcao2()
+    } catch (e: ClassCastException) {
+        println("ClassCastException foi pegada!")
+    }
     println("Fim funcao1")
 }
 
-fun funcao2(){
+fun funcao2() {
     println("Início funcao2")
-    for (i in 1..5){
+    for (i in 1..5) {
         println(i)
         val endereco = Any()
         endereco as Endereco //lança uma Exception ao tentar converter o objeto (ClassCastException)
