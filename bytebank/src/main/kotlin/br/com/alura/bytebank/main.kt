@@ -1,29 +1,5 @@
-import br.com.alura.bytebank.modelo.Endereco
-
 fun main() {
     println("Início main")
-    val entrada: String = "1.0"
-
-    val valorRecebido: Double? = try {
-        entrada.toDouble()
-    } catch (e: NumberFormatException) {
-        println("Problema na conversão")
-        e.printStackTrace()
-        null
-    }
-
-    val valorComTaxa: Double? = if (valorRecebido != null) {
-        valorRecebido + 0.1
-    } else {
-        null
-    }
-
-    if (valorComTaxa != null) {
-        println("valor recebido: $valorComTaxa")
-    } else {
-        println("valor inválido")
-    }
-
     funcao1()
     println("Fim main")
 }
@@ -47,7 +23,7 @@ fun funcao2() {
     for (i in 1..5) {
         println(i)
         val endereco = Any()
-        endereco as Endereco //lança uma Exception ao tentar converter o objeto (ClassCastException)
+        throw ClassCastException()
     }
     println("Fim funcao2")
 }
