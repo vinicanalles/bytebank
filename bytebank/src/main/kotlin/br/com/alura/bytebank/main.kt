@@ -2,7 +2,7 @@ import br.com.alura.bytebank.exception.SaldoInsuficienteException
 
 fun main() {
     println("Início main")
-    funcao1()
+    testaComportamentosConta()
     println("Fim main")
 }
 
