@@ -1,30 +1,7 @@
-import br.com.alura.bytebank.exception.SaldoInsuficienteException
+import br.com.alura.bytebank.modelo.Endereco
 
 fun main() {
-    println("Início main")
-    testaComportamentosConta()
-    println("Fim main")
-}
-
-fun funcao1() {
-    println("Início funcao1")
-    try {
-        funcao2()
-    } catch (e: SaldoInsuficienteException) {
-        println(e.message)
-        println(e.cause)
-        println(e.stackTrace)
-        println(e.printStackTrace())
-        println("SaldoInsuficienteException foi pegada!")
-    }
-    println("Fim funcao1")
-}
-
-fun funcao2() {
-    println("Início funcao2")
-    for (i in 1..5) {
-        println(i)
-        throw SaldoInsuficienteException()
-    }
-    println("Fim funcao2")
+    var enderecoNulo: Endereco? = null
+    val enderecoNaoNulo: Endereco = enderecoNulo!!
+    enderecoNaoNulo.logradouro
 }
