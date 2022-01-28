@@ -1,7 +1,5 @@
 package br.com.alura.bytebank.teste
 
-import funcao1
-
 fun testaExpressao(entrada: String) {
     val valorRecebido: Double? = try {
         entrada.toDouble()

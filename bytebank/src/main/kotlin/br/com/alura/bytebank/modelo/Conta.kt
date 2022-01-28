@@ -44,8 +44,6 @@ abstract class Conta(
             throw FalhaAutenticacaoException()
         }
 
-        throw RuntimeException()
-
         this.saldo -= valor
         destino.deposita(valor)
     }
