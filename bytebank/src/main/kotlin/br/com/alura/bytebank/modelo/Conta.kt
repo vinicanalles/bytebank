@@ -1,5 +1,7 @@
 package br.com.alura.bytebank.modelo
 
+import br.com.alura.bytebank.exception.SaldoInsuficienteException
+
 abstract class Conta(
     var titular: Cliente,
     val numero: Int
@@ -25,13 +27,14 @@ abstract class Conta(
 
     abstract fun sacar(valor: Double)
 
-    fun transfere(destino: Conta, valor: Double): Boolean {
-        if (saldo >= valor) {
-            this.saldo -= valor
-            destino.deposita(valor)
-            return true
+    fun transfere(destino: Conta, valor: Double) {
+
+        if (saldo < valor) {
+            throw SaldoInsuficienteException()
         }
-        return false
+
+        this.saldo -= valor
+        destino.deposita(valor)
     }
 }
 
