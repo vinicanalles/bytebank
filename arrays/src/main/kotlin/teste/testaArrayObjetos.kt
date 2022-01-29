@@ -1,5 +1,9 @@
 package teste
 
+import arrays.bigDecimalArrayOf
+import arrays.calculaAumentoRelativo
+import arrays.media
+import arrays.somatoria
 import java.math.BigDecimal
 import java.math.RoundingMode
 
@@ -9,20 +13,31 @@ fun testaArrayObjetos() {
 
     val aumento = "1.1".toBigDecimal()
     val salariosComAumento: Array<BigDecimal> = salarios
-        .map { salario ->
-            if (salario < "5000.00".toBigDecimal()) {
-                salario + "500.00".toBigDecimal()
-            } else {
-                (salario * aumento).setScale(2, RoundingMode.UP)
-            }
-        }
+        .map { salario -> calculaAumentoRelativo(salario, aumento) }
         .toTypedArray()
 
     println(salariosComAumento.contentToString())
-}
 
-fun bigDecimalArrayOf(vararg valores: String): Array<BigDecimal> {
-    return Array(valores.size) { i ->
-        valores[i].toBigDecimal()
+    val gastoInicial = salariosComAumento.somatoria()
+    println("Gasto Inicial: $gastoInicial")
+
+    val meses = 6.toBigDecimal()
+    val gastoTotal = salariosComAumento.fold(gastoInicial) { acumulador, salario ->
+        acumulador + (salario * meses).setScale(2, RoundingMode.UP)
     }
+    println("Gasto Total: $gastoTotal")
+
+    val mediaDosUltimosTresSalarios = salariosComAumento
+        .sorted()
+        .takeLast(3)
+        .toTypedArray()
+        .media()
+    println("Média dos últimos 3 salários: $mediaDosUltimosTresSalarios")
+
+    val mediaDosTresPrimeirosSalarios = salariosComAumento
+        .sorted() // Realiza a ordenação dos elementos dentro da lista
+        .take(3) //Utilizado para pegar os elementos dentro de uma lista
+        .toTypedArray() //Transforma o retorno em um Array
+        .media() //Chama a função que calcula média
+    println("Média dos últimos 3 salários: $mediaDosTresPrimeirosSalarios")
 }
