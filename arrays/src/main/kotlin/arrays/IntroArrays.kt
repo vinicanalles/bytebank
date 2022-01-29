@@ -1,5 +1,5 @@
-import teste.testaOperacoesAgregadoras
+import teste.testaArrayObjetos
 
 fun main() {
-    testaOperacoesAgregadoras()
+    testaArrayObjetos()
 }
