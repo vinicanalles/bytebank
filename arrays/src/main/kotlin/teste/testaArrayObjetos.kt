@@ -1,5 +1,9 @@
 package teste
 
+import arrays.bigDecimalArrayOf
+import arrays.calculaAumentoRelativo
+import arrays.media
+import arrays.somatoria
 import java.math.BigDecimal
 import java.math.RoundingMode
 
@@ -22,24 +26,18 @@ fun testaArrayObjetos() {
         acumulador + (salario * meses).setScale(2, RoundingMode.UP)
     }
     println("Gasto Total: $gastoTotal")
-}
 
-private fun calculaAumentoRelativo(salario: BigDecimal, aumento: BigDecimal) =
-    if (salario < "5000.00".toBigDecimal()) {
-        salario + "500.00".toBigDecimal()
-    } else {
-        (salario * aumento).setScale(2, RoundingMode.UP)
-    }
+    val mediaDosUltimosTresSalarios = salariosComAumento
+        .sorted()
+        .takeLast(3)
+        .toTypedArray()
+        .media()
+    println("Média dos últimos 3 salários: $mediaDosUltimosTresSalarios")
 
-fun bigDecimalArrayOf(vararg valores: String): Array<BigDecimal> {
-    return Array(valores.size) { i ->
-        valores[i].toBigDecimal()
-    }
-}
-
-//Criação de uma Extension Function
-fun Array<BigDecimal>.somatoria(): BigDecimal {
-    return this.reduce { acumulador, valor ->
-        acumulador + valor
-    }
+    val mediaDosTresPrimeirosSalarios = salariosComAumento
+        .sorted() // Realiza a ordenação dos elementos dentro da lista
+        .take(3) //Utilizado para pegar os elementos dentro de uma lista
+        .toTypedArray() //Transforma o retorno em um Array
+        .media() //Chama a função que calcula média
+    println("Média dos últimos 3 salários: $mediaDosTresPrimeirosSalarios")
 }
