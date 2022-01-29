@@ -1,5 +1,5 @@
-import teste.testaRanges
+import teste.testaOperacoesAgregadoras
 
 fun main() {
-    testaRanges()
+    testaOperacoesAgregadoras()
 }
