@@ -9,20 +9,31 @@ fun testaArrayObjetos() {
 
     val aumento = "1.1".toBigDecimal()
     val salariosComAumento: Array<BigDecimal> = salarios
-        .map { salario ->
-            if (salario < "5000.00".toBigDecimal()) {
-                salario + "500.00".toBigDecimal()
-            } else {
-                (salario * aumento).setScale(2, RoundingMode.UP)
-            }
-        }
+        .map { salario -> calculaAumentoRelativo(salario, aumento) }
         .toTypedArray()
 
     println(salariosComAumento.contentToString())
+
+    val gastoInicial = salariosComAumento.somatoria()
+    println("Gasto Inicial: $gastoInicial")
 }
+
+private fun calculaAumentoRelativo(salario: BigDecimal, aumento: BigDecimal) =
+    if (salario < "5000.00".toBigDecimal()) {
+        salario + "500.00".toBigDecimal()
+    } else {
+        (salario * aumento).setScale(2, RoundingMode.UP)
+    }
 
 fun bigDecimalArrayOf(vararg valores: String): Array<BigDecimal> {
     return Array(valores.size) { i ->
         valores[i].toBigDecimal()
+    }
+}
+
+//Criação de uma Extension Function
+fun Array<BigDecimal>.somatoria(): BigDecimal {
+    return this.reduce { acumulador, valor ->
+        acumulador + valor
     }
 }
