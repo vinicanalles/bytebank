@@ -1,7 +1,7 @@
 package lists
 
 fun main() {
-    val prateleira: Prateleira = Prateleira(
+    val prateleira = Prateleira(
         genero = "Literatura",
         livros = listaDeLivros
     )
