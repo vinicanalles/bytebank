@@ -1,39 +1,27 @@
 package br.com.alura
 
 fun main() {
-    val banco = BancoDeNomes()
-    val nomesSalvos: Collection<String> = banco.nomes
-    banco.salva("Alex")
-    println(nomesSalvos)
-    println(BancoDeNomes().nomes)
-}
+    val assistiramCursoAndroid: Set<String> = setOf("Alex", "Fran", "Gui", "Maria")
+    val assistiramCursoKotlin: Set<String> = setOf("Alex", "Paulo", "Maria")
+    val assistiramAmbos = mutableSetOf<String>()
+    assistiramAmbos.addAll(assistiramCursoAndroid)
+    assistiramAmbos.addAll(assistiramCursoKotlin)
+    assistiramAmbos.add("Ana")
+    println(assistiramAmbos)
 
-class BancoDeNomes {
+    //Função Union
+    println(assistiramCursoAndroid + assistiramCursoKotlin)
+    println(assistiramCursoAndroid union assistiramCursoKotlin)
 
-    val nomes: Collection<String> get() = dados.toList()
+    //Função Subtract
+    println(assistiramCursoKotlin - assistiramCursoAndroid)
+    println(assistiramCursoKotlin subtract assistiramCursoAndroid)
 
-    fun salva(nome: String) {
-        dados.add(nome)
-    }
+    //Função Intersect
+    println(assistiramCursoKotlin intersect assistiramCursoAndroid)
 
-    companion object {
-        private val dados = mutableListOf<String>()
-    }
-}
-
-fun testaColecao() {
-    val nomes: Collection<String> = mutableListOf(
-        "Alex",
-        "Fran",
-        "Gui",
-        "Maria",
-        "Ana"
-    )
-
-    for (nome in nomes.iterator()) {
-        println(nome)
-    }
-    println(nomes)
-    println("Tem o nome Alex? ${nomes.contains("Vinicius")}")
-    println("Tamanho da coleção: ${nomes.size}")
+    val assistiramList = assistiramAmbos.toMutableList()
+    assistiramList.add("Alex")
+    println(assistiramList)
+    println(assistiramList.toSet())
 }
