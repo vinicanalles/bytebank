@@ -2,14 +2,15 @@ package br.com.alura
 
 fun main() {
     val banco = BancoDeNomes()
+    val nomesSalvos: Collection<String> = banco.nomes
     banco.salva("Alex")
-    println(banco.nomes)
+    println(nomesSalvos)
     println(BancoDeNomes().nomes)
 }
 
 class BancoDeNomes {
 
-    val nomes: Collection<String> get() = dados
+    val nomes: Collection<String> get() = dados.toList()
 
     fun salva(nome: String) {
         dados.add(nome)
