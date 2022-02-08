@@ -1,21 +1,31 @@
-import br.com.alura.bytebank.modelo.Endereco
-
 fun main() {
-    var enderecoNulo: Endereco? = Endereco(logradouro = "Rua Vergueiro", complemento = "prédio")
-    val logradouroNovo: String? = enderecoNulo?.logradouro
-
-    enderecoNulo?.let { endereco ->
-        println(endereco.logradouro.length)
-        val tamanhoComplemento: Int =
-            endereco.complemento?.length ?: throw IllegalStateException("Complemento não pode ser vazio")
-        println(tamanhoComplemento)
+    val minhaFuncaoLambda: () -> Unit = {
+        println("Executa como lambda!")
     }
+    println(minhaFuncaoLambda())
 
-    teste(1)
-    teste("")
+    val minhaFuncaoAnonima: () -> Unit = fun () {
+        println("Executa como anônima!")
+    }
+    println(minhaFuncaoAnonima())
 }
 
-fun teste(valor: Any){
-    val numero: Int? = valor as? Int
-    println(numero)
+fun testaTipoFuncaoClasse() {
+    val minhaFuncaoClasse: () -> Unit = Teste()
+    println(minhaFuncaoClasse())
+}
+
+fun testaTipoFuncaoReferencia() {
+    val minhaFuncao: () -> Unit = ::teste
+    println(minhaFuncao())
+}
+
+fun teste() {
+    println("Executa Teste!")
+}
+
+class Teste : () -> Unit {
+    override fun invoke() {
+        println("Executa Invoke do Teste!")
+    }
 }
