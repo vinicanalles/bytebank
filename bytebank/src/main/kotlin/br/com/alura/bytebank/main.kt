@@ -1,5 +1,17 @@
 fun main() {
-    println(soma(1, 5))
+    val minhaFuncao: () -> Unit = ::teste
+    println(minhaFuncao())
+
+    val minhaFuncaoClasse: () -> Unit = Teste()
+    println(minhaFuncaoClasse())
 }
 
-fun soma(a: Int, b: Int) : Int = a + b
+fun teste() {
+    println("Executa Teste!")
+}
+
+class Teste : () -> Unit {
+    override fun invoke() {
+        println("Executa Invoke do Teste!")
+    }
+}
