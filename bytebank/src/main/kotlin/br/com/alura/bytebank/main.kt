@@ -1,22 +1,22 @@
 import br.com.alura.bytebank.modelo.Endereco
+import java.util.*
 
 fun main() {
-    val testeFuncao: () -> Unit
-    Endereco().let { }
-    //higher order function
-    "".let(::testeRecebeString)
-    1.let {
-        it
-    }
-    teste(1) {}
-}
 
-fun testeRecebeString(valor: String) {
+//    val endereco = Endereco(logradouro = "rua vergueiro", numero = 3185)
+//    val enderecoEmMaiusculo = "${endereco.logradouro}, ${endereco.numero}".uppercase(Locale.getDefault())
+//    println(enderecoEmMaiusculo)
 
-}
+    Endereco(logradouro = "rua vergueiro", numero = 3185)
+        .let { endereco ->
+            "${endereco.logradouro}, ${endereco.numero}".uppercase(Locale.getDefault())
+        }.let(::println)
 
-fun teste(teste: Int, bloco: () -> Unit): () -> Unit {
-    return {
-
-    }
+    listOf(
+        Endereco(complemento = "casa"),
+        Endereco(),
+        Endereco(complemento = "apartamento")
+    )
+        .filter { endereco -> endereco.complemento.isNotEmpty() }
+        .let(::println)
 }
