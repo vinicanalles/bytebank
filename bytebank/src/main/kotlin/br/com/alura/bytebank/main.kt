@@ -1,47 +1,22 @@
+import br.com.alura.bytebank.modelo.Endereco
+
 fun main() {
-//    testaTipoFuncaoClasse()
-//    testaTipoFuncaoReferencia()
-    val minhaFuncaoLambda = { a: Int, b: Int ->
-        a + b
+    val testeFuncao: () -> Unit
+    Endereco().let { }
+    //higher order function
+    "".let(::testeRecebeString)
+    1.let {
+        it
     }
-    println(minhaFuncaoLambda(15, 10))
-
-    val minhaFuncaoAnonima = fun(a: Int, b: Int): Int {
-        return a + b
-    }
-    println(minhaFuncaoAnonima(10, 20))
-
-    val calculaBonificacao: (salario: Double) -> Double = lambda@{ salario ->
-        if (salario > 1000.0) {
-            return@lambda salario + 50.0
-        }
-        return@lambda salario + 100.0
-    }
-    println(calculaBonificacao(1100.0))
-
-    val calculaBonificacaoAnonima: (salario: Double) -> Double = fun (salario): Double {
-        if (salario > 1000.0) {
-            return salario + 50.0
-        }
-        return salario + 100.0
-    }
-    println(calculaBonificacaoAnonima(1150.0))
+    teste(1) {}
 }
 
-fun testaTipoFuncaoClasse() {
-    val minhaFuncaoClasse: (Int, Int) -> Int = Soma()
-    println(minhaFuncaoClasse(7, 3))
+fun testeRecebeString(valor: String) {
+
 }
 
-fun testaTipoFuncaoReferencia() {
-    val minhaFuncao: (Int, Int) -> Int = ::soma
-    println(minhaFuncao(2, 3))
-}
+fun teste(teste: Int, bloco: () -> Unit): () -> Unit {
+    return {
 
-fun soma(a: Int, b: Int): Int {
-    return a + b
-}
-
-class Soma : (Int, Int) -> Int {
-    override fun invoke(a: Int, b: Int): Int = a + b
+    }
 }
