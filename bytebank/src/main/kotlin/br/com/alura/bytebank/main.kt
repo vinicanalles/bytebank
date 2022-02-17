@@ -10,8 +10,8 @@ fun main() {
 //    println(enderecoEmMaiusculo)
 
     Endereco(logradouro = "rua vergueiro", numero = 3185)
-        .let { endereco ->
-            "${endereco.logradouro}, ${endereco.numero}".uppercase(Locale.getDefault())
+        .apply {
+            "$logradouro, $numero".uppercase(Locale.getDefault())
         }.let(::println)
 
     listOf(
@@ -19,7 +19,7 @@ fun main() {
         Endereco(),
         Endereco(complemento = "apartamento")
     )
-        .filter (predicate = { endereco -> endereco.complemento.isNotEmpty() })
+        .filter(predicate = { endereco -> endereco.complemento.isNotEmpty() })
         .let(block = (::println))
 
     soma(1, 5, resultado = (::println))
