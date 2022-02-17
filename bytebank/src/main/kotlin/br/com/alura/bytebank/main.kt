@@ -9,17 +9,29 @@ fun main() {
 //    val enderecoEmMaiusculo = "${endereco.logradouro}, ${endereco.numero}".uppercase(Locale.getDefault())
 //    println(enderecoEmMaiusculo)
 
-    Endereco(logradouro = "rua vergueiro", numero = 3185)
-        .let { endereco ->
-            "${endereco.logradouro}, ${endereco.numero}".uppercase(Locale.getDefault())
-        }.let(::println)
+    run {
+        println("Execução do run sem extensão!")
+    }
+
+    val endereco = Endereco()
+        .also { println("Criando endereço!") }
+        .apply {
+            logradouro = "rua vergueiro"
+            numero = 3185
+        }
+
+    with(endereco) {
+        "$logradouro, $numero".uppercase(Locale.getDefault())
+    }.let { enderecoEmMaiusculo: String ->
+        println(enderecoEmMaiusculo)
+    }
 
     listOf(
         Endereco(complemento = "casa"),
         Endereco(),
         Endereco(complemento = "apartamento")
     )
-        .filter (predicate = { endereco -> endereco.complemento.isNotEmpty() })
+        .filter(predicate = { endereco -> endereco.complemento.isNotEmpty() })
         .let(block = (::println))
 
     soma(1, 5, resultado = (::println))
